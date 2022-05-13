@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>优化代码Es6</title>
+  </head>
+  <body>
+    <script>
+      const handleAnimal = ({ type, name, gender } = {}) => {
+        //   { type, name, gender } = {} 当没有东西传进来会报错，赋值一个{}防止报错
+        if (!type) return (result = 'no type')
+        if (!name) return (result = 'no name')
+        if (!gender) return (result = 'no gender')
+
+        // 都有的话
+        return `${name} is a ${gender} - ${type}`
+        // ES6写法
+      }
+
+      //   调用一下
+      console.log(handleAnimal({ name: '大黄', type: 'dog', gender: 'male' }))
+      console.log(handleAnimal({ name: '大黄', type: 'dog' }))
+      console.log(handleAnimal())
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浅拷贝</title>
+  </head>
+  <body>
+    <script>
+      var person = {
+        name: 'kobe',
+      }
+      let person1 = person
+      person1.name = 'John'
+      console.log(person.name, '====1====')
+      console.log(person1.name, '=====2=====')
+
+      function shallowCopy(val) {
+        var newObj = {}
+        for (const i in val) {
+          if (val.hasOwnProperty(i)) {
+            newObj[i] = val[i]
+          }
+        }
+        return newObj
+      }
+      //  浅拷贝
+      //  创建一个新的对象，拷贝的如果是基本数据类型，那么拷贝的即是基本数据类型的值。如果是引用数据类型。那么拷贝的即是内存的地址。
+      //  改变了地址  会导致两个对象指向同一个地址
+
+      //  深拷贝   
+      //  引用数据类型， 会开辟一个新的空间   
+      let person3 = {
+        name: 'kobe',
+        hobby: ['篮球', '冰球', '足球'],
+      }
+      var person4 = shallowCopy(person3)
+      person4.name = 'Alis'
+      person5.hobby[1] = '123213球'
+      console.log(person3.name, '====3====')
+      console.log(person4.name, '=====4=====')
+      console.log(person.hobby[1], '=====5=====')
+      console.log(person5.hobby[1], '=====6=====')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+    //   var twoSum = function (nums, target) {
+    //     let str = []
+    //     for (let i = 0; i < nums.length; i++) {
+    //       for (let j = i + 1; j < nums.length; j++) {
+    //         if (nums[i] + nums[j] === target) {
+    //           str.push(i, j)
+    //           return str
+    //         }
+    //       }
+    //     }
+    //   }
+
+      var twoSum2 = function (nums, target) {
+        let hash = {}
+        for (let i = 0; i < nums.length; i++) {
+            // console.log(hash[target - nums[i]],i);
+          if (hash[target - nums[i]] !== undefined) {
+            return [i, hash[target - nums[i]]]
+          }
+          hash[nums[i]] = i
+        }
+        return []
+      }
+
+      //   var a = twoSum([3,3,4], 6)
+      //   var a = twoSum([11,2,7,15], 9)
+    //   var a = twoSum([2, 22, 12, 1, 3, 4], 6)
+      var b = twoSum2([2, 22, 12, 1, 3, 4], 6)
+      console.log(b)
+    </script>
+  </body>
+</html>

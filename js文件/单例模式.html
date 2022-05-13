@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>单例模式</title>
+  </head>
+  <body>
+    <button id="loginBtn" style="height: 36px; width: 46px;">按钮</button>
+    <script>
+      
+      var createLogin = function () {
+        var div = document.createElement('div')
+        div.innerHTML = '我是登录的弹窗'
+        div.style.display = 'none'
+        document.body.appendChild(div)
+        return div
+      }
+
+      var getElement = function (fn) {
+        var result
+        return function () {
+          return result || (result = fn.apply(this, arguments))
+        }
+      }
+
+      var create = getElement(createLogin)
+
+      document.getElementById('loginBtn').onclick = function () {
+          var loginLay = create(1,2)
+          loginLay.style.display = 'block'
+      }
+    </script>
+  </body>
+</html>

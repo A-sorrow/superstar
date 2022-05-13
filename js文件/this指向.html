@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this指向</title>
+  </head>
+  <body>
+    <script>
+      // var name = 111
+      var a = {
+        name: 222,
+        say: function () {
+          console.log(this.name)
+        },
+      }
+
+      var fn = a.say
+      console.log('111111');
+      fn()
+      console.log('222222');
+      a.say()
+    </script>
+  </body>
+</html>
