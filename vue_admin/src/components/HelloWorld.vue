@@ -30,10 +30,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  computed: {
+    ...mapGetters({
+      getUserInfo: 'userinfo'
+    })
+  },
+  methods: {
+    ...mapActions({
+      setUserInfo:'getUserInfo'
+    }),
+    sss() {
+      this.$store.dispatch('getUserInfo')
+      // this.setUserInfo(xxxx)
+    }
   }
 }
 </script>
