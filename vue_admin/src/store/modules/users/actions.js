@@ -1,5 +1,5 @@
 import * as types from './mutation-types'
-import { Login, User } from '@/utils/api'
+// import { Login, User } from '@/utils/api'
 
 // 获取用户信息
 export const getUserInfo = ({ commit }) => {
