@@ -28,14 +28,14 @@ const tryCloseLoading = () => {
     endLoading()
   }
 }
-
+// 开启loading
 export const showFullScreenLoading = () => {
   if (loadingCount === 0) {
     startLoading()
   }
   loadingCount++
 }
-
+// 关闭loading
 export const tryHideFullScreenLoading = () => {
   if (loadingCount <= 0) return
   loadingCount--
