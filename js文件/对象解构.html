@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>es6对象解构</title>
+  </head>
+  <body>
+    <script>
+      let obj = {
+        name: 'aaa',
+        age: '13',
+        sex: '1',
+      }
+
+      //   let { name: myself_name, age, sex: sex_mysex } = obj
+      let { age, sex: sex_mysex, name: myself_name } = obj
+      //   对象解构顺序不会有影响
+      console.log(obj, 'obj====obj')
+      console.log(
+        myself_name,
+        age,
+        sex_mysex,
+        'myself_name,age,sex_mysex====myself_name,age,sex_mysex'
+      )
+
+      //   let [a, b, c] = [1, 2, 3]
+      //   console.log(a, b, c)
+
+      let [b, a, c] = [1, 2, 3]
+      console.log(a, b, c)
+      //   数组解构顺序会有影响
+    </script>
+  </body>
+</html>
