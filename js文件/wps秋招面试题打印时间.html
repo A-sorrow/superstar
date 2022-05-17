@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>面试题打印时间</title>
+  </head>
+  <body>
+    <script>
+      // 实现一个方法，每隔一秒打印 YYYY-MM-DD hh-mm-ss
+
+      setInterval(() => {
+       console.log('当前时间是：'+ getTime());
+      }, 1000)
+
+      function getTime() {
+        var time = new Date()
+        var Y = time.getFullYear()
+        var M = (time.getMonth() + 1).toString().padStart(2, '0')
+        var D = time.getDate().toString().padStart(2, '0')
+        // ================================================= //
+        var h = time.getHours().toString().padStart(2, '0')
+        var m = time.getMinutes().toString().padStart(2, '0')
+        var s = time.getSeconds().toString().padStart(2, '0')
+        return `${Y}-${M}-${D}  ${h}:${m}:${s}`
+    }
+    </script>
+  </body>
+</html>
