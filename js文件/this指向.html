@@ -8,7 +8,7 @@
   </head>
   <body>
     <script>
-      // var name = 111
+      var name = 111
       var a = {
         name: 222,
         say: function () {
@@ -17,10 +17,37 @@
       }
 
       var fn = a.say
-      console.log('111111');
-      fn()
-      console.log('222222');
-      a.say()
+      fn() //打印1次 this指向最外层 即111
+
+      a.say() //打印2次 this指向a 即222
+      //////////////////////////////////////////////////////////////////////
+      // 函数中直接调用
+      function get(text) {
+        console.log(text)
+      }
+
+      get('你好')
+      // get('你好') 全等于 === get.call(window, '你好')
+      get.call(window, '你好')
+      /////////////////////////////////////////////////////////////////////
+      // 作为对象的属性直接调用
+      var person = {
+        name: '张三',
+        run: function () {
+          console.log(`${this.name}在跑步`)
+        },
+      }
+      console.log(person.run() === person.run.call(person) ? true : false)
+      /////////////////////////////////////////////////////////////////////
+      var a = 1111
+      var obj = {
+        a: 2222,
+        b: () => {
+          console.log(this.a);
+        },
+      }
+
+      obj.b() //执行b的箭头函数时,因为a,b同级，b是箭头函数，没有自己的this 此处的this指向上一级即var a = 1111
     </script>
   </body>
 </html>

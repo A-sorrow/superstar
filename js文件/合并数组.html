@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>合并数组</title>
+  </head>
+  <body>
+    <script>
+      var a = ['a', 'b', 'c']
+      var b = [1, 2]
+      var c = ['$', '^', '$']
+
+      var all = []
+
+      // es5
+      console.log(all.concat(a, b, c))
+      // es6
+      console.log([...a, ...b, ...c])
+
+      // 数组解构赋值结合
+
+      const [first, ...second] = [23, 12, 232, 333, 555]
+      console.log(first, second)
+      console.log(first, '-----' + second)
+
+      const [a1, ...b1] = []
+      console.log(a1, b1)
+
+      //   用途？
+      function Add(x, y, z) {
+        return x + y + z
+      }
+      arrNum = [1, 2, 4]
+      //   es6
+      console.log(Add(...arrNum))
+      //   es5   apply()方法，第一个参数用不到不需要改变this指向
+      console.log(Add.apply(null,arrNum));
+    </script>
+  </body>
+</html>
