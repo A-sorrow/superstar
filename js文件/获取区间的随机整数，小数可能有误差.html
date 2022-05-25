@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取区间的随机整数，小数可能有误差</title>
+  </head>
+  <body>
+    <script>
+      function randomNum(min, max) {
+        var range = max - min
+        var rand = Math.random()
+        // random() 获取一个[0,1) 的小数
+        return min + Math.round(rand * range)
+      }
+
+      console.log(randomNum(5, 9))
+    </script>
+  </body>
+</html>
