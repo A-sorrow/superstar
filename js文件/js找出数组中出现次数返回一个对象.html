@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js找出字符串中出现次数最多的字符</title>
+  </head>
+  <body>
+    <script>
+      // var str = 'aaaaaaaabbvsdfwwwwwwwwwwwwwwwwwwwwww'
+      var str = ['a', 'a', 'c', 'b', 'a', 'f', 'd', 'd']
+      function get(str) {
+        // const arr = str.split('')
+        // 未指定initialValue，pre:previousValue(数组第一项),   cur:currentValue(数组第二项),指定了则相反
+        return str.reduce(
+          function (pre, cur) {
+            if (cur in pre) {
+              pre[cur]++
+            } else {
+              pre[cur] = 1
+            }
+            return pre
+          },
+          {
+            // initialValue,
+            // 传空{}代表不指定initialValue
+          }
+        )
+      }
+
+      console.log(get(str))
+
+    </script>
+  </body>
+</html>
