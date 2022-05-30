@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function judgeType(val){
+            return typeof(val)
+        }
+        console.log(judgeType('111'));
+        console.log(judgeType(111));
+        console.log(judgeType({}));
+        console.log(judgeType([1,2]));
+        console.log(judgeType(undefined));
+        
+        
+        judgeType({})
+        judgeType([{}])
+        judgeType(true)
+        judgeType(undefined)
+    </script>
+</body>
+</html>
