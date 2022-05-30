@@ -7,9 +7,9 @@
     <title>单例模式</title>
   </head>
   <body>
-    <button id="loginBtn" style="height: 36px; width: 46px;">按钮</button>
+    <button id="loginBtn" style="height: 36px; width: 46px">按钮</button>
     <script>
-      
+      // 单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
       var createLogin = function () {
         var div = document.createElement('div')
         div.innerHTML = '我是登录的弹窗'
@@ -21,16 +21,48 @@
       var getElement = function (fn) {
         var result
         return function () {
-          return result || (result = fn.apply(this, arguments))
+          // return result || (result = fn.apply(this, arguments))
+          return result || (result = fn())
         }
       }
 
       var create = getElement(createLogin)
 
       document.getElementById('loginBtn').onclick = function () {
-          var loginLay = create(1,2)
-          loginLay.style.display = 'block'
+        var loginLay = create()
+        loginLay.style.display = 'block'
       }
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////
+      // ES6实现单例 如果在一个方法前加上static关键字,就表示该方法不会被实例继承,而是直接通过类来调用,这就称为静态方法。
+      class SingletonApple {
+        constructor(name, creator, products) {
+          this.name = name
+          this.creator = creator
+          this.products = products
+        }
+
+        static getInstance(name, creator, products) {
+          if (!this.instance) {
+            this.instance = new SingletonApple(name, creator, products)
+          }
+          return this.instance
+        }
+      }
+
+      let appleCompany = SingletonApple.getInstance('苹果公司', '乔布斯', [
+        'iphone6',
+        'iPad',
+        'iMac',
+      ])
+
+      let shanZhaiCompany = SingletonApple.getInstance('苹果公司', '莆田', [
+        'iphone6',
+        'iPad',
+        'iMac',
+      ])
+
+      console.log(appleCompany === shanZhaiCompany) //true
     </script>
   </body>
 </html>
