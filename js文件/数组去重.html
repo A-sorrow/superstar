@@ -65,6 +65,18 @@
       let array = [1, 1, 2, 3, 3, 4]
       console.log(nonRepeat_5(array)) // [1,2,3,4]
       /////////////////////////////////////////////////////////////////////////////////////////
+      // 用reduce，includes来实现
+      var arr_myself = [1,2,3,4,4,4,4,2,2,6,5]
+      var newArr =  arr_myself.reduce(function (pre, cur) {
+        if(!pre.includes(cur)){
+          // 不存在  就连进去 concat
+          return pre.concat(cur)
+        }else{
+          return pre
+        }
+      },[])
+      console.log('arr_myself：去重', newArr);
+      ////////////////////////////////////////////////////////////////////////////////////////
       console.log(unique([1, 2, 2, 3, 3, 4, 7, 9]))
       console.log(unique_2([1, 2, 2, 3, 3, 4, 7, 9]))
       console.log(unique_3([1, 2, 2, 3, 3, 4, 7, 9]))
