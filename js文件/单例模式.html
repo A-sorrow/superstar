@@ -63,6 +63,32 @@
       ])
 
       console.log(appleCompany === shanZhaiCompany) //true
+      //////////////////////////////////////////////////////////////////////////////////////
+      function fn() {
+        var arr = []
+        for (var i = 0; i < 10; i++) {
+          arr[i] = function () {
+            return i
+          }
+        }
+        return arr
+      }
+      var arr = fn()
+      console.log(arr[0]()) //10  i访问的是循环的结束,想要得到0，将任意一个var -> let或者 见下代码
+      // 没出现es6 let 使用闭包(立即执行函数，自调用函数)来解决 
+      function fn1() {
+        var arr = []
+        for (var i = 0; i < 10; i++) {
+          ;(function (i) {
+            arr[i] = function () {
+              return i
+            }
+          })(i)
+        }
+        return arr
+      }
+      var arr = fn1()
+      console.log(arr[0]());
     </script>
   </body>
 </html>
